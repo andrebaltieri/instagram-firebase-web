@@ -1,0 +1,9 @@
+{
+  "firebase": "tdc2015demo",
+  "public": "",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

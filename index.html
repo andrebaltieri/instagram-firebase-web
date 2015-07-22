@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="insta">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-time Instagram</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+</head>
+<body>
+
+<div ng-show="user">
+    <div ng-include="'pages/shared/header.html'"></div>
+    <div layout="row" layout-wrap ng-controller="HomeCtrl">
+        <div flex="20">
+            <md-content class="md-padding">
+                <md-card>
+                    <img ng-src="{{ user.image }}" class="md-card-image" alt="{{ user.name }}">
+                    <md-card-content>
+                        <h2 class="md-title">{{ user.name }}</h2>
+
+                        <p>
+                            {{ user.email }}
+                        </p>
+                    </md-card-content>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button>Sair</md-button>
+                    </div>
+                </md-card>
+            </md-content>
+        </div>
+        <div flex>
+            <md-content class="md-padding">
+                <p>Conteúdo aqui</p>
+
+                <div id="camera">
+                    <button class="camera-control" ng-click="capturePhoto();">Capture Photo</button>
+
+                    <div style="text-align:center;margin:20px;">
+                        <img id="cameraPic" src="" style="width:auto;height:120px;"></img>
+                    </div>
+                </div>
+            </md-content>
+        </div>
+
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Sidenav Right</h1>
+            </md-toolbar>
+            <md-content layout-padding>
+                <h1>Hello</h1>
+            </md-content>
+        </md-sidenav>
+    </div>
+
+    <div ng-include="'pages/shared/footer.html'"></div>
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+
+<script>
+    angular.module('insta', ['ngMaterial']);
+
+    angular.module('insta').run(function ($rootScope) {
+        $rootScope.user = null;
+    });
+
+    angular.module('insta').controller('HomeCtrl', function ($rootScope, $scope, $mdSidenav) {
+        var ref = new Firebase("https://tdc2015demo.firebaseio.com");
+
+        ref.authWithOAuthPopup("facebook", function (error, authData) {
+            if (error) {
+                console.log("Falha no login!!", error);
+            } else {
+                $rootScope.user = {
+                    name: authData.facebook.displayName,
+                    email: authData.facebook.email,
+                    image: authData.facebook.profileImageURL
+                };
+                $scope.$apply();
+            }
+        }, {
+            scope: "email,user_likes"
+        });
+
+        $mdSidenav('right').toggle();
+    });
+
+</script>
+</body>
+</html>
