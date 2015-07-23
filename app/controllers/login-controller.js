@@ -10,6 +10,7 @@
 
         vm.facebookLogin = doFacebookLogin;
         vm.logout = logout;
+        vm.navigate = navigate;
 
         activate();
 
@@ -40,6 +41,10 @@
             $rootScope.user = null;
             localStorage.removeItem("firebase:session::tdc2015demo");
             $location.path('/login');
+        }
+
+        function navigate(path) {
+            $location.path(path + '/');
         }
     }
 })();

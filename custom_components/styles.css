@@ -1,0 +1,64 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.grayscale {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.brightness {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+}
+
+.contrast {
+    -webkit-filter: contrast(100%);
+    filter: contrast(100%);
+}
+
+.saturate {
+    -webkit-filter: saturate(2);
+    filter: saturate(2);
+}
+
+.invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.sepia {
+    -webkit-filter: sepia(100%);
+    filter: sepia(100%);
+}
+
+/* Outros estilos */
+
+.cropArea {
+    background: #f5f5f5;
+    overflow: hidden;
+    width: 100%;
+    height: 540px;
+    border: 1px dashed #0b97c4;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

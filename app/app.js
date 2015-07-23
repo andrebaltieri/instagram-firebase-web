@@ -1,3 +1,3 @@
 (function(){
-    angular.module('insta', ['ngRoute', 'ngMaterial']);
+    angular.module('insta', ['ngRoute', 'firebase', 'ngImgCrop']);
 })();

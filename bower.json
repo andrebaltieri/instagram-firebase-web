@@ -14,9 +14,8 @@
     "angular-route": "~1.4.3",
     "firebase": "~2.2.7",
     "angularfire": "~1.1.2",
-    "angular-material": "~0.10.0",
-    "angular-animate": "~1.4.3",
-    "angular-aria": "~1.4.3",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "ngImgCrop": "~0.3.2",
+    "bootswatch": "~3.3.5+2"
   }
 }

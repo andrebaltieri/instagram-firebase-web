@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="insta">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control: max-age=3600, must-revalidate"/>
+    <meta name="description" content="Real-time Instagram">
     <title>Real-time Instagram</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+
+    <link rel="stylesheet" href="bower_components/bootswatch/paper/bootstrap.css"/>
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/ngImgCrop/compile/minified/ng-img-crop.css"/>
+    <link rel="stylesheet" href="custom_components/styles.css"/>
 </head>
-<body layout="column" >
+<body>
 
-<div ng-include="'pages/shared/header.html'"></div>
+<div ng-include="'pages/shared/header.html'" ng-show="user"></div>
+<br/><br/>
 
-<div ng-view></div>
+<div class="container" ng-view></div>
+<br/><br/>
 
-<div ng-include="'pages/shared/footer.html'" ng-show="user"></div>
-
-
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-aria/angular-aria.js"></script>
-<script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/firebase/firebase.js"></script>
 <script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
 
 <script src="app/app.js"></script>
 <script src="app/config.js"></script>
