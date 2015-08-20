@@ -1,6 +1,6 @@
 {
-  "firebase": "tdc2015demo",
-  "public": "",
+  "firebase": "5517",
+  "public": "dist",
   "ignore": [
     "firebase.json",
     "**/.*",

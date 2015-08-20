@@ -1,6 +1,6 @@
 (function () {
     angular.module('insta').constant('APP_SETTINGS', {
-        "FIREBASE_URL": "https://tdc2015demo.firebaseio.com"
+        "FIREBASE_URL": "https://5517.firebaseio.com"
     });
 
     angular.module('insta').run(function ($rootScope, $location) {

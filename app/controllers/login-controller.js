@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
     angular.module('insta').controller('LoginCtrl', LoginCtrl);
 
@@ -15,14 +15,14 @@
         activate();
 
         function activate() {
-
+            //ref.onAuth(authDataCallback);
         }
 
         function doFacebookLogin() {
-            ref.authWithOAuthPopup("facebook", function (error, authData) {
+            ref.authWithOAuthPopup("facebook", function(error, authData) {
                 if (error) {
                     console.log("Falha no login!!", error);
-                } else {
+                }else{
                     $rootScope.user = {
                         name: authData.facebook.displayName,
                         email: authData.facebook.email,
@@ -32,14 +32,14 @@
                     $scope.$apply();
                 }
             }, {
-                scope: "email,user_likes"
+                scope: "email"
             });
         }
 
         function logout() {
             ref.unauth();
             $rootScope.user = null;
-            localStorage.removeItem("firebase:session::tdc2015demo");
+            localStorage.removeItem("firebase:session::5517");
             $location.path('/login');
         }
 

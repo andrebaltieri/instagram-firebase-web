@@ -16,6 +16,7 @@
     "angularfire": "~1.1.2",
     "font-awesome": "~4.3.0",
     "ngImgCrop": "~0.3.2",
-    "bootswatch": "~3.3.5+2"
+    "bootswatch": "~3.3.5",
+    "toastr": "~2.1.2"
   }
 }

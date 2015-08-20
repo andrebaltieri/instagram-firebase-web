@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="insta">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control: max-age=3600, must-revalidate"/>
+    <meta name="description" content="Firengram">
+    <title>Fire{ng}ram</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="196x196" href="https://5517.firebaseapp.com/assets/images/icon-touch.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <link rel="apple-touch-icon" href="https://5517.firebaseapp.com/assets/images/icon-touch.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Fire{ng}ram">
+
+    <link rel="stylesheet" href="../bower_components/bootswatch/paper/bootstrap.css"/>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="../bower_components/ngImgCrop/compile/minified/ng-img-crop.css"/>
+    <link rel="stylesheet" href="../custom_components/css/styles.css"/>
+</head>
+<body>
+
+<div ng-include="'pages/shared/header.html'" ng-show="user"></div>
+<br/><br/>
+
+<div class="container" ng-view></div>
+<br/><br/>
+
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/firebase/firebase.js"></script>
+<script src="../bower_components/angularfire/dist/angularfire.js"></script>
+<script src="../bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
+
+<script src="../app/app.js"></script>
+<script src="../app/config.js"></script>
+<script src="../app/routes.js"></script>
+
+<script src="../app/controllers/home-controller.js"></script>
+<script src="../app/controllers/post-controller.js"></script>
+<script src="../app/controllers/login-controller.js"></script>
+
+</body>
+</html>
