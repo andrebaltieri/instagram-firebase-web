@@ -1,7 +1,12 @@
 {
-  "name": "tdcdemo",
-  "version": "0.0.0",
+  "name": "Fire{ng}ram",
+  "authors": [
+    "Marcela Bomfim <mbomfim@live.com>"
+  ],
+  "description": "",
+  "main": "",
   "license": "MIT",
+  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -10,13 +15,13 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.3",
-    "angular-route": "~1.4.3",
-    "firebase": "~2.2.7",
-    "angularfire": "~1.1.2",
-    "font-awesome": "~4.3.0",
-    "ngImgCrop": "~0.3.2",
-    "bootswatch": "~3.3.5",
-    "toastr": "~2.1.2"
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "firebase": "^3.5.0",
+    "angularfire": "^2.0.2",
+    "font-awesome": "^4.6.3",
+    "ng-img-crop": "ngImgCrop#^0.3.2",
+    "bootswatch": "^3.3.7",
+    "toastr": "^2.1.3"
   }
 }
