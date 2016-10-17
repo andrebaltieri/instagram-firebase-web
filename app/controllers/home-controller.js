@@ -1,24 +1,19 @@
 (function () {
     'use strict';
+
     angular.module('insta').controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['$scope', 'APP_SETTINGS', '$firebaseArray'];
+    HomeCtrl.$inject = ['$scope', '$firebaseArray'];
 
-    function HomeCtrl($scope, APP_SETTINGS, $firebaseArray) {
-        var vm = this;
-        var ref = new Firebase(APP_SETTINGS.FIREBASE_URL + '/posts');
-        ref.orderByKey().limitToLast(25);
+    function HomeCtrl($scope, $firebaseArray) {
+        $scope.posts = [];
 
-        vm.posts = [];
+        var ref = firebase.database().ref().child("posts").orderByKey().limitToLast(25);
 
         activate();
 
         function activate() {
-            vm.posts = $firebaseArray(ref);
+            $scope.posts = $firebaseArray(ref);
         }
-
-        ref.child("messages").orderByKey().limitToLast(6).on("child_added", function(snapshot) {
-            vm.posts.push(angular.fromJson(snapshot.val()));
-        });
-    }
+    };
 })();

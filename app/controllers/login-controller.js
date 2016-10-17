@@ -1,50 +1,36 @@
 (function() {
     'use strict';
+
     angular.module('insta').controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$rootScope', '$location', 'APP_SETTINGS'];
+    LoginCtrl.$inject = ['$scope', '$rootScope', '$location', '$firebaseAuth'];
 
-    function LoginCtrl($scope, $rootScope, $location, APP_SETTINGS) {
-        var vm = this;
-        var ref = new Firebase(APP_SETTINGS.FIREBASE_URL);
+    function LoginCtrl($scope, $rootScope, $location, $firebaseAuth) {
+        var auth = $firebaseAuth();
 
-        vm.facebookLogin = doFacebookLogin;
-        vm.logout = logout;
-        vm.navigate = navigate;
+        $scope.facebookLogin = doFacebookLogin;
+        $scope.logout = logout;
 
-        activate();
-
-        function activate() {
-            //ref.onAuth(authDataCallback);
-        }
-
-        function doFacebookLogin() {
-            ref.authWithOAuthPopup("facebook", function(error, authData) {
-                if (error) {
-                    console.log("Falha no login!!", error);
-                }else{
-                    $rootScope.user = {
-                        name: authData.facebook.displayName,
-                        email: authData.facebook.email,
-                        image: authData.facebook.profileImageURL
-                    };
-                    $location.path('/');
-                    $scope.$apply();
-                }
-            }, {
-                scope: "email"
+        function doFacebookLogin(){
+            auth.$signInWithPopup("facebook").then(function(firebaseUser) {
+                // console.log(firebaseUser);
+                $rootScope.user = {
+                    name: firebaseUser.user.displayName,
+                    email: firebaseUser.user.email,
+                    image: firebaseUser.user.photoURL
+                };
+                $location.path('/');
+                // $scope.$apply();
+            }).catch(function(error) {
+                console.log("Authentication failed:", error);
             });
+
         }
 
         function logout() {
-            ref.unauth();
+            auth.$signOut();
             $rootScope.user = null;
-            localStorage.removeItem("firebase:session::5517");
             $location.path('/login');
         }
-
-        function navigate(path) {
-            $location.path(path + '/');
-        }
-    }
+    };
 })();
