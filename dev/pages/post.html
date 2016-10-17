@@ -6,28 +6,28 @@
 <br/>
 <div class="clearfix"></div>
 
-<div class="text-center" ng-hide="vm.image == ''">
+<div class="text-center" ng-hide="image == ''">
     <div class="cropArea">
-        <img-crop image="vm.image" area-type="square" result-image="vm.croppedImage"></img-crop>
+        <img-crop image="image" area-type="square" result-image="croppedImage"></img-crop>
     </div>
 
     <br/><br/>
-    <input type="text" class="form-control input-lg" placeholder="Deixe aqui sua mensagem..." ng-model="vm.message"/>
+    <input type="text" class="form-control input-lg" placeholder="Deixe aqui sua mensagem..." ng-model="message"/>
 </div>
 
 <br/>
 <div class="clearfix"></div>
 
-<div ng-hide="vm.image == '' || vm.message == ''">
+<div ng-hide="image == '' || message == ''">
     <div class="page-header text-center">
         <h3>Selecione um efeito</h3>
     </div>
 
-    <div class="col-md-6 text-center" ng-repeat="filter in vm.filters">
+    <div class="col-md-6 text-center" ng-repeat="filter in filters">
         <div class="panel panel-default">
             <div class="panel-heading"><h3><small>{{ filter }}</small></h3></div>
             <div class="panel-body">
-                <img ng-src="{{ vm.croppedImage }}" class="{{ filter }}" width="100%" />
+                <img ng-src="{{ croppedImage }}" class="{{ filter }}" width="100%" />
             </div>
             <button class="btn btn-primary btn-lg" ng-click="post(filter)">Publicar com este efeito</button>
             <br/><br/>
